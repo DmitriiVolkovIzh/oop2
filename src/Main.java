@@ -1,5 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Car ladaGranta = new Car("Lada","Granta",1.6, "желтого", 2015, "Россия" );
+        ladaGranta.infoCar();
+
+        Car audiA8 = new Car("Audi","A8 50 L TDI quattro",3,"черного", 2020, "Германия");
+        audiA8.infoCar();
+
+        Car bmw = new Car("BMW", "Z8",3,"черного", 2021,"Германия");
+        bmw.infoCar();
+
+        Car kia = new Car("Kia","Sportage 4-го поколения",2.4,"красного", 2018, "Южная Корея");
+        kia.infoCar();
+
+        Car hyundai = new Car("Hyundai","Avante",1.6,"оранжевого",2016,"Южная Корея");
+        hyundai.infoCar();
+
+
+
     }
 }
