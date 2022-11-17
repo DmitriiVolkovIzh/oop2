@@ -6,10 +6,10 @@ public class Main {
         Car audiA8 = new Car("Audi","A8 50 L TDI quattro",3,"черного", 2020, "Германия");
         audiA8.infoCar();
 
-        Car bmw = new Car("BMW", "Z8",3,"черного", 2021,"Германия");
+        Car bmw = new Car("BMW", "Z8",3,"черного", -1,"Германия");
         bmw.infoCar();
 
-        Car kia = new Car("Kia","Sportage 4-го поколения",2.4,"красного", 2018, "Южная Корея");
+        Car kia = new Car("Kia","Sportage 4-го поколения",-2.4,"", 2018, "Южная Корея");
         kia.infoCar();
 
         Car hyundai = new Car("Hyundai","Avante",1.6,"оранжевого",2016,"Южная Корея");
