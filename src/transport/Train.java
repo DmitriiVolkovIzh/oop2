@@ -9,16 +9,32 @@ public class Train extends Transport {
 
     public Train(String brand, String model, int productionYear, String productionCountry, int maxSpeed, double priceTrip, int timeTrip, String departureStation, String arrivalStation, int wagons) {
         super(brand, model, productionYear, productionCountry,maxSpeed);
-        this.maxSpeed = getMaxSpeed();
+        if (maxSpeed >= 0)
+            this.maxSpeed = maxSpeed;
+        else this.maxSpeed = Math.abs(maxSpeed);
+
         if (priceTrip >= 0)
             this.priceTrip = priceTrip;
         else this.priceTrip = Math.abs(priceTrip);
-        this.timeTrip = timeTrip;
-        this.departureStation = departureStation;
-        this.arrivalStation = arrivalStation;
-        this.wagons = wagons;
+
+        if (timeTrip >= 0)
+            this.priceTrip = timeTrip;
+        else this.timeTrip = Math.abs(timeTrip);
+
+        if (departureStation == null || departureStation.isEmpty()) this.departureStation = "информация не указана";
+        else this.departureStation = departureStation;
+
+        if (arrivalStation == null || arrivalStation.isEmpty()) this.arrivalStation = "информация не указана";
+        else this.arrivalStation = arrivalStation;
+
+        if (wagons >= 0)
+            this.wagons = wagons;
+        else this.wagons =  Math.abs(wagons);
     }
 
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
     public double getPriceTrip() {
         return priceTrip;
     }
@@ -60,6 +76,7 @@ public class Train extends Transport {
     public void setWagons(int wagons) {
         this.wagons = wagons;
     }
+
     public void infoTrain() {
         System.out.println("Поезд " + getBrand() + ", модель "+ getModel()+", " + getProductionYear() +" год выпуска в России, скорость передвижения " +
                 +getMaxSpeed()+ ", отходит от "+ getDepartureStation() + " и следует до станции " +getArrivalStation() +
