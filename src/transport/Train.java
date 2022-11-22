@@ -32,6 +32,12 @@ public class Train extends Transport {
         else this.wagons =  Math.abs(wagons);
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Заправь поезд дизелем");
+
+    }
+
     public int getMaxSpeed() {
         return maxSpeed;
     }
