@@ -1,12 +1,16 @@
 package transport;
 
-public class Transport {
+import java.util.Objects;
+
+public abstract class Transport {
     protected int maxSpeed;
     private String brand;
     private String model;
     private int productionYear;
     private  String productionCountry;
     private String color;
+
+    public abstract void refill();
 
 
     public Transport(String brand, String model, int productionYear, String productionCountry, int maxSpeed) {
@@ -63,5 +67,18 @@ public class Transport {
 
     public int getMaxSpeed() {
         return maxSpeed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return maxSpeed == transport.maxSpeed && productionYear == transport.productionYear && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(productionCountry, transport.productionCountry) && Objects.equals(color, transport.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maxSpeed, brand, model, productionYear, productionCountry, color);
     }
 }

@@ -79,4 +79,10 @@ public class Car extends Transport {
         else this.tire = "зимняя";
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Если у тебя бензиновый двигатель-заправь АИ-100, " +
+                "если дизельный-ДТ, а электрокар подключи к зарядке");
+
+    }
 }
