@@ -1,9 +1,9 @@
-package driver;
+package avtoracing.driver;
 
-public class DriverD extends Driver {
-    public DriverD (String name, String driverLicense, int driveExperience) {
+public class DriverB extends Driver {
+    public DriverB(String name, String driverLicense, int driveExperience) {
         super(name, driverLicense, driveExperience);
-        this.setDriverLicense("водительская категория D");
+        this.setDriverLicense("водительская категория B");
     }
 
     @Override

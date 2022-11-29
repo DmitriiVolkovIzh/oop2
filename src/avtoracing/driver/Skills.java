@@ -1,4 +1,4 @@
-package driver;
+package avtoracing.driver;
 
 public interface Skills {
     public void startDriving();

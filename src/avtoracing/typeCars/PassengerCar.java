@@ -1,16 +1,28 @@
 package avtoracing.typeCars;
 
 import avtoracing.Cars;
-import driver.DriverB;
-import driver.Skills;
+import avtoracing.driver.DriverB;
+import avtoracing.driver.Skills;
 
 import java.util.Objects;
 
 public class PassengerCar<B extends DriverB & Skills> extends Cars  {
 
-    public PassengerCar(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+    private Body body;
+
+    public Body getBody() {
+        return body;
     }
+
+    public void setBody(Body body) {
+        this.body = body;
+    }
+
+    public PassengerCar(String brand, String model, double engineVolume, Body body) {
+        super(brand, model, engineVolume);
+        this.body = body;
+    }
+
     public void participant (B driver){
         System.out.println(driver.getName() + " " + driver.getDriverLicense() + " управляет "+ this);
     }
@@ -26,6 +38,15 @@ public class PassengerCar<B extends DriverB & Skills> extends Cars  {
         System.out.println("Легковой автомобиль");
         super.stopTrip();
     }
+
+    @Override
+    public void printType() {
+        if (body==null){
+            System.out.println("Данных по авто не достаточно");
+        } else System.out.println("Тип кузова: " + body);
+
+    }
+
     @Override
     public String toString() {
         return super.toString();
@@ -57,4 +78,5 @@ public class PassengerCar<B extends DriverB & Skills> extends Cars  {
     public void maxSpeed() {
         System.out.println(this + " лучшая максимальная скорость");
     }
+
 }

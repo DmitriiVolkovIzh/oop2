@@ -2,18 +2,27 @@ package avtoracing.typeCars;
 
 import avtoracing.Cars;
 
-import driver.DriverC;
-import driver.Skills;
+import avtoracing.driver.DriverC;
+import avtoracing.driver.Skills;
 
 import java.util.Objects;
 
+
 public class Trucks <C extends DriverC & Skills> extends Cars  {
 
-    public Trucks(String brand, String model, double engineVolume) {
+    private Capacity capacity;
+
+    public Trucks(String brand, String model, double engineVolume,Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
     public void participant (C driver){
-        System.out.println(driver.getName() + " " + driver.getDriverLicense() + " управляет "+ this);
+        System.out.println(driver.getName() + " " + driver.getDriverLicense() + " управляет "+ this );
     }
 
     @Override
@@ -27,6 +36,18 @@ public class Trucks <C extends DriverC & Skills> extends Cars  {
         System.out.println("Грузовик");
         super.stopTrip();
     }
+
+    @Override
+    public void printType() {
+        if (capacity==null) {
+            System.out.println("Данных по грузовику не достаточно");}
+        else {
+            String from = getCapacity().getFrom() == null ?"" : getCapacity().getFrom()+"";
+            String to = getCapacity().getTo() == null ?"" : getCapacity().getTo()+"";
+            System.out.println("Грузоподъемность: от " + from + " до " + to + " т.");
+        }
+    }
+
     @Override
     public String toString() {
         return super.toString();

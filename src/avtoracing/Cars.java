@@ -1,5 +1,6 @@
 package avtoracing;
 
+import avtoracing.typeCars.Body;
 import avtoracing.typeCars.Competing;
 
 import java.util.Objects;
@@ -36,6 +37,8 @@ public abstract class Cars implements Competing {
     public void stopTrip(){
         System.out.println(getBrand() + " " + getModel() + " закончил движение");
     }
+
+    public abstract void printType();
 
     @Override
     public String toString() {

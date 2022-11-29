@@ -1,24 +1,32 @@
 package avtoracing.typeCars;
 
 import avtoracing.Cars;
-import driver.DriverB;
-import driver.DriverD;
-import driver.Skills;
+import avtoracing.Seats;
+import avtoracing.driver.DriverD;
+import avtoracing.driver.Skills;
 
 import java.util.Objects;
 
 public class Buses <D extends DriverD & Skills> extends Cars {
 
-    public Buses(String brand, String model, double engineVolume) {
+    private Seats seats;
+
+    public Buses(String brand, String model, double engineVolume, Seats seats) {
         super(brand, model, engineVolume);
+        this.seats = seats;
     }
+
+    public Seats getSeats() {
+        return seats;
+    }
+
     @Override
     public void startTrip() {
         System.out.println("Автобус");
         super.startTrip();
     }
     public void participant (D driver){
-        System.out.println(driver.getName() + " " + driver.getDriverLicense() + " управляет "+ this);
+        System.out.println(driver.getName() + " " + driver.getDriverLicense() + " управляет "+ this );
     }
 
     @Override
@@ -26,6 +34,16 @@ public class Buses <D extends DriverD & Skills> extends Cars {
         System.out.println("Автобус");
         super.stopTrip();
     }
+
+    @Override
+    public void printType() {
+        if (seats==null){
+            System.out.println("Данных по автобусу не достаточно");
+        } else System.out.println("Количество мест: от " + seats.getFrom() + " до "+ seats.getTo() + " мест.");
+
+    }
+
+
     @Override
     public String toString() {
         return super.toString();

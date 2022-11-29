@@ -1,4 +1,4 @@
-package driver;
+package avtoracing.driver;
 
 import java.util.Objects;
 
