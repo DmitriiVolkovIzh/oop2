@@ -1,7 +1,6 @@
 package avtoracing.typeCars;
 
 import avtoracing.Cars;
-import avtoracing.Seats;
 import avtoracing.driver.DriverD;
 import avtoracing.driver.Skills;
 
@@ -59,6 +58,12 @@ public class Buses <D extends DriverD & Skills> extends Cars {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode());
+    }
+
+    @Override
+    public boolean service() {
+        System.out.println("Автобус "+getBrand()+ " " +getModel() + " в диагностики не требуется");
+        return true;
     }
 
     @Override

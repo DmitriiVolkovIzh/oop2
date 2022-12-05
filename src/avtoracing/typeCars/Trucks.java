@@ -66,6 +66,11 @@ public class Trucks <C extends DriverC & Skills> extends Cars  {
     }
 
     @Override
+    public boolean service() {
+        return Math.random()>0.75;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println(this +" необходима замена шин");
     }

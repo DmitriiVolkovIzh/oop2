@@ -57,4 +57,6 @@ public abstract class Cars implements Competing {
     public int hashCode() {
         return Objects.hash(getBrand(), getModel(), getEngineVolume());
     }
+
+    public abstract boolean service();
 }

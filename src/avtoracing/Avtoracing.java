@@ -33,5 +33,24 @@ public class Avtoracing {
         scania.participant(driverTwo);
         scania.printType();
 
+        service(maz,neoplan,yutong,ikarus,
+                porsche,ferrari,audi,lamborghini,
+                volvo,scania,tata,kamaz);
+
+
+    }
+    public static void service(Cars...cars){
+        for (Cars cars1 : cars) {
+            serviceCars(cars1);
+                }
+            }
+    private static void serviceCars (Cars cars){
+        try{
+            if(!cars.service())
+                throw new RuntimeException("Автобмобиль " + cars.getBrand() + " " + cars.getModel() +
+                        " не прошел диагностику");}
+            catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

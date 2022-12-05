@@ -28,7 +28,11 @@ public abstract class Driver implements Skills {
     }
 
     public void setDriverLicense(String driverLicense) {
-        this.driverLicense = driverLicense;
+
+        if (driverLicense==null){
+            throw new IllegalArgumentException("Необходимо указать тип прав");
+        }
+        this.driverLicense=driverLicense;
     }
 
     public double getDriveExperience() {

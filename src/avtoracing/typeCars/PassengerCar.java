@@ -65,6 +65,11 @@ public class PassengerCar<B extends DriverB & Skills> extends Cars  {
     }
 
     @Override
+    public boolean service() {
+        return Math.random()>0.5;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println(this +" необходима замена шин");
     }
