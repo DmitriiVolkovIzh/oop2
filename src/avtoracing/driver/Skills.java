@@ -1,8 +1,8 @@
 package avtoracing.driver;
 
 public interface Skills {
-    public void startDriving();
-    public void stopDriving();
-    public void refill();
+    public String startDriving();
+    public String stopDriving();
+    public String refill();
 }
 
