@@ -63,7 +63,7 @@ public abstract class Transport {
         return color;
     }
     public String setColor() {
-        return color;}
+        return getColor();}
 
     public int getMaxSpeed() {
         return maxSpeed;
