@@ -1,55 +1,46 @@
 package setForIntegers.supermarket;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Recipe {
 
+    private Double sum;
     private String name;
-
-    private ProductList productList;
-
-    private int totalCost;
-
-    public Recipe(String name, ProductList productList, int totalCost) {
-        setName(name);
-        setProductList(productList);
-        setTotalCost(totalCost);
+    private final HashMap<Product, Double> products;
+    protected Recipe(String name, Double sum, Product... products){
+        this.products = new HashMap<>();
+        setSum(0.0);
+        for (Product product : products) {
+            setSum((getSum() + product.getPrice()) * product.getPrice());
+            this.products.put(product, product.getPrice());
+        }
     }
-
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    private void setName(String name) {
+        if(name == null || name.isEmpty()) throw new RuntimeException(); else  this.name = name;
     }
-
-    public ProductList getProductList() {
-        return productList;
+    public Double getSum() {
+        return sum;
     }
-
-    public void setProductList(ProductList productList) {
-        this.productList = productList;
+    private void setSum(Double sum) {
+        this.sum = sum;
     }
-
-    public int getTotalCost() {
-        return totalCost;
+    @Override
+    public String toString() {
+        return "Название " + name + " сумма покупки " + sum + " список продуктов" + products;
     }
-
-    public void setTotalCost(int totalCost) {
-        this.totalCost = totalCost;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Recipe)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return Objects.equals(name,recipe.name);
+        return Objects.equals(sum, recipe.sum) && Objects.equals(name, recipe.name) && Objects.equals(products, recipe.products);
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(sum, name, products);
     }
 }
